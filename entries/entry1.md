@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -36,8 +36,8 @@ p, h1, h2 {
    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images">here.</a> To fully see what d3.js can do,
    here is an image that uses hexagon shapes, often seen using d3.js</p>
    <div class="col-md-6">
-   <img src="hex.png"></img>
-   <img src="21datadriven590.jpg"></img>
+   <img src="images/hex.png"></img>
+   <img src="images/21datadriven590.jpg"></img>
    <p>After going through several examples on Github I can see that it is clear that d3.js 
    is mainly used for CSS and can be used as shorthand for longer CSS uses in the html file
    Some other uses for the d3.js API are also the following:
