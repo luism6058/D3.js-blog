@@ -2,11 +2,8 @@
   <head>
     <meta charset="UTF-8">
     <title>D3 blog</title>
-    <!-- bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <style>
@@ -58,7 +55,7 @@ p, h1, h2 {
 <li> Behaviors</li>
 <h1>Takeaways</h1>
 <li>The uses of d3.js are very wide making my option very large</li>
-<li>There are very well done sources on d3.js making it easy to look for examples and debug my code if necessary</li>
+<li>For D3.js there are plenty of sources, making it easy to explore different ideas to use d3.js</li>
 <li>After searching for days on what to do, I have decided but I know if it doesn't lead up to what I was
 expecting then i could switch and quickly get back on track with the new project.</li>
    </div>
