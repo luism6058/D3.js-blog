@@ -8,7 +8,7 @@ of our own choosing and studying it for 9 weeks and at the ned showing off our p
 which will likely be a website that uses d3.js and show where and how it is used.
 ## What is D3.js?
 D3.js stands for Data Driven Document, hence D3. It is also part of the Javascript Library 
-and allows for a simpler use of CSS in the html file, for example
+and allows for a simpler use of CSS in the html file, for example: ```j d3.selectAll("p").style("color","white)```
 is a simplified version of how to change the color of the p tag. Normally that would have been a 3-4 line piece
 of code but by using d3.js it is now simply a one line piece of code.
 ### How to install d3.js onto the desktop
@@ -19,8 +19,8 @@ of code but by using d3.js it is now simply a one line piece of code.
    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images">here.</a> To fully see what d3.js can do,
    here is an image that uses hexagon shapes, often seen using d3.js
    
-   ![alt text](images/hex.png "Logo Title Text 1")
-   <img src="images/21datadriven590.jpg"></img>
+   ![missingImage.pg](images/hex.png "Logo Title Text 1")
+    ![missingImage2.jpg](images/21datadriven590.jpg "Logo Title Text 1")<img src=""></img>
    <br>
    After going through several examples on Github I can see that it is clear that d3.js 
    is mainly used for CSS and can be used as shorthand for longer CSS uses in the html file
