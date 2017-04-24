@@ -27,9 +27,10 @@ any new program onto the computer nor onto the c9 workspace, which has proved to
 current d3 software and can finally tinker with the code and see what results have changed, not only that it neatly
 seperates the html, the CSS and d3. Here is a screenshot of the beginning:
 
-![](Capture.PNG)
+![filler](Capture.PNG)
 
-
+Although I'm still working out the reason why the image does not load in, I will be further tweaking it, such as changing the dimensions of the shapes and possibly adding
+multiple images to make
 ## Takeaways
  * Always throughly check if an example chunk of code will work on c9 or anywhere else before putting time into it
  * Search for backup plans in case your current project does not pan out
