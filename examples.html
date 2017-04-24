@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-
+<html>
 <head>
-    <title>Speedometer</title>
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <title>Equalizer</title>
+<script src="https://d3js.org/d3.v4.min.js"></script>
     <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
     <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
     <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
     <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
-    
     <style>
+    
         body {
             font: 16px arial;
             background-color: #515151;
@@ -21,95 +19,84 @@
             -webkit-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            /*import d3 from: 'd3-webpack-loader!';*/
         }
 
-        /* css formats for the gauge */
-        .gauge .domain {
-            stroke-width: 2px;
-            stroke: #fff;
+        .slider {
+            font-size: 12px;
         }
 
-        .gauge .tick line {
-            stroke: #fff;
-            stroke-width: 2px;
+        .slider .axis path,
+        .slider .axis line {
+            fill: none;
+            stroke: #ddd;
+            shape-rendering: crispEdges;
         }
         
-        .gauge line {
-            stroke: #fff;
-        }
-
-        .gauge .arc, .gauge .cursor {
-            opacity: 0;
-        }
-
-        .gauge .major {
-            fill: #fff;
-            font-size: 20px;
-            font-family: 'Play', verdana, sans-serif;
-            font-weight: normal;
-        }
         
-        .gauge .indicator {
-            stroke: #EE3311;
-            fill: #000;
-            stroke-width: 4px;
+        .slider .lane {
+            fill: #eee;
+            opacity: 1;
         }
 
-        /* css formats for the segment display */
-        .segdisplay .on {
-            fill: #00FFFF;
-
+        .slider .cursor {
+            fill: #00EEFF;
+            opacity: 1;
         }
 
-        .segdisplay .off {
-            fill: #00FFFF;
-            opacity: 0.15;
+        .slider .tick {
+            fill: #ddd;
         }
+
+        .slider .major {
+            stroke-width: 2;
+        }
+
     </style>
 </head>
 <body>
     <div>
-        <span id="speedometer"></span>
+        <span id="equalizer" touch-action="none"></span>
     </div>
     
     <script>
-        var svg = d3.select("#speedometer")
-                .append("svg:svg")
-                .attr("width", 400)
-                .attr("height", 400);
-
-
-        var gauge = iopctrl.arcslider()
-                .radius(120)
-                .events(false)
-                .indicator(iopctrl.defaultGaugeIndicator);
-        gauge.axis().orient("in")
-                .normalize(true)
-                .ticks(12)
-                .tickSubdivide(3)
-                .tickSize(10, 8, 10)
-                .tickPadding(5)
-                .scale(d3.scale.linear()
-                        .domain([0, 160])
-                        .range([-3*Math.PI/4, 3*Math.PI/4]));
-
-        var segDisplay = iopctrl.segdisplay()
-                .width(80)
-                .digitCount(6)
-                .negative(false)
-                .decimals(0);
-
-        svg.append("g")
-                .attr("class", "segdisplay")
-                .attr("transform", "translate(130, 200)")
-                .call(segDisplay);
-
-        svg.append("g")
-                .attr("class", "gauge")
-                .call(gauge);
-
-        segDisplay.value(56749);
-        gauge.value(92);
+    const d3 = require('d3!');
     
+        var svg = d3.select("#equalizer")
+                .append("svg:svg")
+                .attr("width", 600)
+                .attr("height", 400)
+                .append("g")
+                .attr("transform", "translate(100, 100)")
+                .attr("class", "equalizer");
+    
+        var leds = [];
+        var eq = svg.selectAll(".ledarray").data(d3.range(0, 500, 25));
+        eq.enter().append("g")
+                .attr("class", "ledarray")
+                .each(function(d, i) {
+                    var led = iopctrl.ledarray();
+                    led.scale().domain([0, 1]).range([200, 0]);
+                    d3.select(this).attr("transform", "translate("+d+")")
+                            .call(led);
+                    led.value(Math.sin(Math.PI * d / 500));
+                    leds.push(led);
+                });
+    
+        var ctrl = iopctrl.slider()
+                .width(50)
+                .transitionDuration(5000);
+        ctrl.scale().range([0, 450]);
+        svg.append("g")
+                .attr("transform", "translate(0, 200)")
+                .attr("class", "slider")
+                .call(ctrl);
+
+        ctrl.onValueChanged(function(value) {
+            leds.forEach(function(led, i) {
+                leds[i].value((1 + Math.sin(Math.PI * (i / 8 - 4 * value))) / 2);
+            });
+        });
     </script>
 </body>
+</html>
