@@ -22,7 +22,7 @@ and the code is still relatively simple, it is the css that confuses me however
 since most of it we have not worked with.
 
 ## Update
-As of noew I have found a perfect sandbox in which i can use d3.js at its current version without having to installed
+As of now I have found a perfect sandbox in which i can use d3.js at its current version without having to installed
 any new program onto the computer nor onto the c9 workspace, which has proved to be rather troublesome in updating it to the
 current d3 software and can finally tinker with the code and see what results have changed, not only that it neatly
 seperates the html, the CSS and d3. Here is a screenshot of the beginning:
