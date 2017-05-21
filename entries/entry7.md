@@ -23,3 +23,4 @@ and the example would work which can be found if you search in the entries file 
  so if you ever feel lost in your project and you're not sure if anyone will get it, just ask, because you never
  know if someone might have the same question or have the answer and save you plenty of time and trouble for your
  project.
+ [here](examples.html)
